@@ -3,7 +3,7 @@
 import type { ApiResponse, CourseData, CourseArea } from '../types';
 
 
-const BASE_URL = 'http://sua-api-java-publicada.com/api/v1'; 
+const BASE_URL = 'https://educavrv-backendgs.onrender.com'; // 
 
 
 const mockCourses: CourseData[] = [
