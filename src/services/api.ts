@@ -1,5 +1,6 @@
 // src/services/api.ts
-import { ApiResponse, CourseData, CourseArea } from '../types';
+// src/services/api.ts
+import type { ApiResponse, CourseData, CourseArea } from '../types';
 
 // **ATENÇÃO:** Substitua pela URL da sua API Java publicada na nuvem
 const BASE_URL = 'http://sua-api-java-publicada.com/api/v1'; 

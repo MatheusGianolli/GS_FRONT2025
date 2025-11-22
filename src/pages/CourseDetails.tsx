@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from '../routes/useRouter';
 // Tente deixar assim. Se der erro, apague "UserCourseProgress" e digite de novo para o VS Code achar
-import { UserCourseProgress, CourseArea } from '../types'; 
+// Tente deixar assim. Se der erro, apague "UserCourseProgress" e digite de novo para o VS Code achar
+import type { UserCourseProgress, CourseArea } from '../types/'; 
 import ProgressTracker from '../components/ProgressTracker';
 
 // Ícone simulado de Play

@@ -1,9 +1,9 @@
 // src/pages/AreaEdu.tsx
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom'; // Removido
-import { useRouter } from '../routes/useRouter'; // Novo import para navegação
+// import { Link } from 'react-router-dom'; 
+import { useRouter } from '../routes/useRouter'; 
 import type { CourseData } from '../types';
-import { getCourses } from '../services/api'; // Usando a versão refatorada com fetch
+import { getCourses } from '../services/api'; 
 
 const AreaEdu: React.FC = () => {
   const [courses, setCourses] = useState<CourseData[]>([]);

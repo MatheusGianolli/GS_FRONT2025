@@ -1,4 +1,4 @@
-// src/routes/AppRoutes.tsx (Controlador do SPA)
+// src/routes/AppRoutes.tsx
 import React from 'react';
 import { useRouter } from './useRouter';
 
@@ -6,12 +6,13 @@ import { useRouter } from './useRouter';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Contato from '../pages/Contato';
-import FAQ from '../pages/FAQ';
-import Integrantes from '../pages/Integrantes';
+import Faq from '../pages/Faq';
+import  Integrantes  from '../pages/Integrantes';
 import AreaEdu from '../pages/AreaEdu';
 import AreaSaude from '../pages/AreaSaude';
 import CourseDetails from '../pages/CourseDetails';
-import NotFound from '../pages/NotFound';
+// --- ADICIONE ESTES DOIS IMPORTS ABAIXO ---
+
 import Layout from '../components/Layout'; 
 
 const AppRoutes: React.FC = () => {
@@ -19,7 +20,7 @@ const AppRoutes: React.FC = () => {
   const { pathname, params } = useRouter(); 
 
   const renderRoute = () => {
-    // 1. Rota Dinâmica
+    // 1. Rota Dinâmica (Prioridade Alta)
     if (pathname.startsWith('/curso/')) {
         // Verifica se os parâmetros obrigatórios existem na URL
         if (params.area && params.slug) {
@@ -36,7 +37,7 @@ const AppRoutes: React.FC = () => {
       case '/contato':
         return <Contato />;
       case '/faq':
-        return <FAQ />;
+        return <Faq />;
       case '/integrantes':
         return <Integrantes />;
       case '/educacao':
@@ -44,16 +45,16 @@ const AppRoutes: React.FC = () => {
       case '/saude':
         return <AreaSaude />;
       case '/about':
-        // CRITÉRIO: Redirecionamento (simulado pela renderização direta da página de destino)
+        // CRITÉRIO: Redirecionamento (simulado renderizando a página certa)
         return <About />; 
       default:
         // CRITÉRIO: Tratamento de rota não encontrada
-        return <NotFound />;
+       
     }
   };
 
   return (
-    // O Layout envolve a lógica de roteamento para que o Navbar e Footer permaneçam fixos
+    // O Layout envolve a lógica para manter Navbar e Footer fixos
     <Layout>
       {renderRoute()}
     </Layout>

@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import React, { useEffect, useState } from 'react';
 import { useRouter } from '../routes/useRouter';
-import { UserCourseProgress, CourseArea } from '../types';
+import type { UserCourseProgress, CourseArea } from '../types';
 import ProgressTracker from '../components/ProgressTracker';
 // Ícones simulados para dashboard
 const BookOpenIcon = (props: React.SVGProps<SVGSVGElement>) => (<svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 19.523 5.754 20 7.5 20s3.332-.477 4.5-1.247m0 0V5.253M12 20v-13M7.5 13.5h9" /></svg>);
