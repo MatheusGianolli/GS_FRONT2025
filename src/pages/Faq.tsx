@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
 
-
 const faqs = [
   {
-    question: "❓ Como funciona o agendamento de uma teleconsulta?",
-    answer: "Você pode agendar sua consulta diretamente pela nossa página inicial. Escolha a especialidade, o médico e o horário que preferir. Você receberá uma confirmação por e-mail com o link para a sua consulta virtual."
+    question: "🚀 Como funciona o sistema de Gamificação (XP)?",
+    answer: "É simples! Cada vídeo assistido e exercício concluído gera pontos de experiência (XP). Ao acumular XP, você sobe de nível no seu 'Passe de Batalha' educacional, desbloqueando novas trilhas de conhecimento e conquistando insígnias exclusivas no seu perfil."
   },
   {
-    question: "💻 Quais equipamentos eu preciso para a consulta?",
-    answer: "Você precisará de um smartphone, tablet ou computador com acesso à internet, uma câmera e um microfone. Recomendamos o uso de fones de ouvido para maior privacidade e clareza de áudio."
+    question: "📚 O conteúdo cobre quais áreas exatamente?",
+    answer: "Nossa plataforma é híbrida e foca na interseção entre Saúde e Educação. Temos módulos técnicos de Medicina/Enfermagem (Anatomia, Fisiologia) e módulos pedagógicos, preparando profissionais para atuarem com excelência técnica e didática."
   },
   {
-    question: "💳 Como funciona o pagamento?",
-    answer: "O pagamento é feito de forma segura através da nossa plataforma. Aceitamos cartões de crédito, débito e PIX. Se você tiver um plano de saúde conveniado, a cobrança será feita diretamente ao seu convênio."
+    question: "💻 A plataforma salva meu progresso automaticamente?",
+    answer: "Sim! Graças à nossa integração com a API Java (Backend), todo o seu progresso, notas e conquistas são salvos na nuvem em tempo real. Você pode começar a estudar no computador e continuar no celular de onde parou."
   },
   {
-    question: "🔒 Minha consulta é segura e privada?",
-    answer: "Sim. Todas as nossas teleconsultas são realizadas em uma plataforma criptografada de ponta a ponta, garantindo total sigilo e segurança das suas informações, de acordo com a Lei Geral de Proteção de Dados (LGPD)."
+    question: "🎓 Eu recebo certificado ao concluir um curso?",
+    answer: "Com certeza. Ao completar 100% de uma trilha e passar na avaliação final (que exige nota mínima de 70%), um certificado digital verificado é gerado automaticamente, pronto para ser compartilhado no LinkedIn."
   },
   {
-    question: "📄 Eu recebo um atestado ou receita médica?",
-    answer: "Sim. Se o médico julgar necessário, ele emitirá receitas, atestados e pedidos de exames com assinatura digital, que são válidos em todo o território nacional. Você receberá os documentos por e-mail e SMS."
+    question: "🔧 Quais tecnologias foram usadas neste projeto?",
+    answer: "Este projeto é uma Single Page Application (SPA) construída com React, Vite e TypeScript para o Front-end, estilizada com Tailwind CSS. O Back-end utiliza Java com arquitetura DDD (Domain-Driven Design) para gerenciar os dados."
   },
 ];
 
-const Faq: React.FC = () => {
+const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
- 
   const handleToggle = (index: number) => {
     if (openIndex === index) {
       setOpenIndex(null); // Fecha o item clicado
@@ -37,35 +35,43 @@ const Faq: React.FC = () => {
   };
 
   return (
-    <main className="bg-gray-50 py-16 min-h-screen">
+    <main className="bg-gray-50 dark:bg-gray-900 py-16 min-h-screen transition-colors duration-300">
       <div className="container mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8 text-center text-hc-blue-dark">Perguntas Frequentes (FAQ)</h2>
-        <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
+        <h2 className="text-4xl font-extrabold mb-4 text-center text-indigo-700 dark:text-indigo-400">
+          Perguntas Frequentes
+        </h2>
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-12 text-lg">
+            Tire suas dúvidas sobre a metodologia e a tecnologia da nossa plataforma.
+        </p>
+
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-200">
+            <div 
+                key={index} 
+                className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700"
+            >
               {/* Botão da Pergunta */}
               <button
                 onClick={() => handleToggle(index)}
-                className="w-full text-left py-5 px-6 flex justify-between items-center hover:bg-gray-50 focus:outline-none transition-colors"
+                className="w-full text-left py-5 px-6 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-700/50 focus:outline-none transition-colors"
               >
-                <span className="font-semibold text-lg text-gray-800">{faq.question}</span>
-                {/* Ícone de Seta (Gira com 'rotate-180') */}
-                <span className={`transform transition-transform duration-300 ${openIndex === index ? 'rotate-180' : 'rotate-0'}`}>
-                  <svg className="w-6 h-6 text-hc-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"></path></svg>
+                <span className="font-bold text-lg text-gray-800 dark:text-gray-200">
+                    {faq.question}
+                </span>
+                {/* Ícone de Seta */}
+                <span className={`transform transition-transform duration-300 text-indigo-500 ${openIndex === index ? 'rotate-180' : 'rotate-0'}`}>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"></path></svg>
                 </span>
               </button>
 
-              {/* --- MELHORIA: Animação de Deslizar ---
-                  Usamos 'max-h' (altura máxima) com 'transition-all'
-                  para animar a abertura e o fechamento.
-              */}
+              {/* Resposta com Animação */}
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100 p-4 pt-0' : 'max-h-0 opacity-0'
+                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="bg-white text-gray-700">
-                  <p>{faq.answer}</p>
+                <div className="p-6 pt-0 text-gray-600 dark:text-gray-300 leading-relaxed border-t border-gray-100 dark:border-gray-700 mt-2">
+                  {faq.answer}
                 </div>
               </div>
             </div>
@@ -76,4 +82,4 @@ const Faq: React.FC = () => {
   );
 };
 
-export default Faq;
+export default FAQ;
