@@ -2,10 +2,10 @@
 // src/services/api.ts
 import type { ApiResponse, CourseData, CourseArea } from '../types';
 
-// **ATENÇÃO:** Substitua pela URL da sua API Java publicada na nuvem
+
 const BASE_URL = 'http://sua-api-java-publicada.com/api/v1'; 
 
-// Simulação de Dados para Desenvolvimento (Mock)
+
 const mockCourses: CourseData[] = [
     { id: 1, area: 'saude', title: 'Anatomia Avançada: Sistema Cardiovascular', slug: 'cardio', description: 'Módulo 1 de Cardiologia...', videoUrl: 'url_video_1', durationMinutes: 90, difficulty: 'expert' },
     { id: 2, area: 'educacao', title: 'Neurociência Cognitiva e Aprendizagem', slug: 'neuro-cog', description: 'Como o cérebro aprende...', videoUrl: 'url_video_2', durationMinutes: 60, difficulty: 'intermediate' },
@@ -23,22 +23,7 @@ async function apiFetch<T>(endpoint: string, options: RequestInit = {}): Promise
     // Simula a latência para desenvolvimento
     await new Promise(resolve => setTimeout(resolve, 500)); 
 
-    // **Descomente para usar a API real:**
-    // const response = await fetch(url, {
-    //     ...options,
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         ...options.headers
-    //     }
-    // });
-    
-    // if (!response.ok) {
-    //   const errorBody = await response.json().catch(() => ({ message: 'Erro desconhecido' }));
-    //   throw new Error(`Erro ${response.status}: ${errorBody.message || 'Falha na requisição.'}`); // CRITÉRIO: Tratamento de erros
-    // }
-    
-    // const result: ApiResponse<T> = await response.json();
-    // return result.data;
+  
 
     // **Simulação (Mock) de dados bem-sucedida:**
     if (endpoint.startsWith('/courses/educacao')) {

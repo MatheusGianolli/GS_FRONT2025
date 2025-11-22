@@ -5,7 +5,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}", // Lê todos os arquivos necessários dentro de src
   ],
-
+       darkMode : 'class', // Habilita o modo escuro via classe 'dark'
   // 2. É aqui que customizamos o DESIGN do projeto
   theme: {
     extend: {
