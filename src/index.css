@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* O Tailwind lida com a maior parte da estilização. 
+   A classe 'dark' é aplicada no HTML pelo ThemeContext. */
+
+/* Estilos de fonte global */
+@layer base {
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  }
+}
