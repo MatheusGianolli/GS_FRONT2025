@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom'; // Removido
 import { useRouter } from '../routes/useRouter'; // Novo import para navegação
-import { CourseData } from '../types';
+import type { CourseData } from '../types';
 import { getCourses } from '../services/api'; // Usando a versão refatorada com fetch
 
 const AreaEdu: React.FC = () => {

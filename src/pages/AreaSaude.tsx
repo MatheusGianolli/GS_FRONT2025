@@ -1,7 +1,7 @@
 // src/pages/AreaSaude.tsx
 import React, { useEffect, useState } from 'react';
 import { useRouter } from '../routes/useRouter';
-import { CourseData } from '../types';
+import type { CourseData } from '../types';
 import { getCourses } from '../services/api'; 
 // Ícone simulado para Saúde
 const MedicalCrossIcon = (props: React.SVGProps<SVGSVGElement>) => (<svg {...props} viewBox="0 0 24 24" fill="currentColor"><path d="M18 10h-4V6h-4v4H6v4h4v4h4v-4h4v-4zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" /></svg>);
