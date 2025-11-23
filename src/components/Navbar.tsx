@@ -35,7 +35,7 @@ const Navbar: React.FC = () => {
                 onClick={(e) => handleNavigation(e, '/')}
                 className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 cursor-pointer hover:opacity-80"
             >
-              GS-HealthEdu 🚀
+              GS- GEMverse: Your Saga
             </a>
           </div>
           

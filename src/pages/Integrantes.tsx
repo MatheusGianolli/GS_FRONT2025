@@ -2,56 +2,103 @@ import React from 'react';
 
 const Integrantes: React.FC = () => {
   return (
-    <div className="container mx-auto p-8 min-h-screen bg-gray-50 dark:bg-gray-900">
-      <h1 className="text-4xl font-bold text-center mb-8 text-indigo-700 dark:text-indigo-400">
-        Equipe de Desenvolvimento
-      </h1>
-      
-      <p className="text-center text-gray-600 dark:text-gray-300 mb-12">
-        Membros responsáveis pelo projeto Global Solution.
-      </p>
+    // Fundo geral com gradiente GEMverse
+    <div className="min-h-screen bg-gradient-to-br from-sky-900 via-slate-900 to-fuchsia-900 flex items-center">
+      {/* camada de leve brilho no fundo */}
+      <div className="pointer-events-none absolute inset-0 opacity-30 bg-gradient-to-tr from-cyan-400/40 via-transparent to-fuchsia-500/40" />
 
-      {/* Grid para os cards dos integrantes */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Conteúdo principal */}
+      <div className="relative container mx-auto px-4 py-16">
+        <div className="bg-gray-50/90 dark:bg-gray-900/80 rounded-3xl shadow-xl p-8 backdrop-blur-sm border border-white/10">
+          {/* Título com gradiente GEMverse */}
+          <h1 className="text-4xl font-extrabold text-center mb-4 bg-gradient-to-r from-cyan-400 via-sky-500 to-fuchsia-500 bg-clip-text text-transparent">
+            Equipe de Desenvolvimento GEMverse
+          </h1>
+          
+          <p className="text-center text-gray-700 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+            Membros responsáveis pelo projeto <span className="font-semibold">Global Solution – GEMverse: Your Saga</span>.
+          </p>
 
-        {/* --- INTEGRANTE 1 (VOCÊ) --- */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-t-4 border-indigo-500">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Seu Nome</h2>
-          <p className="text-indigo-600 dark:text-indigo-400">RM: 00000</p>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">Turma: 1TDSP</p>
-          <div className="mt-4">
-             <a href="#" className="text-blue-500 hover:underline mr-4">GitHub</a>
-             <a href="#" className="text-blue-500 hover:underline">LinkedIn</a>
+          {/* Grid para os cards dos integrantes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {/* MATHEUS */}
+            <div className="relative bg-white/90 dark:bg-gray-900/80 p-6 rounded-2xl shadow-lg border border-cyan-200/70 dark:border-fuchsia-500/50 transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-fuchsia-500" />
+              
+              <div className="mt-2">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                  Matheus Gianolli
+                </h2>
+                <p className="text-cyan-600 dark:text-cyan-300 font-medium">
+                  RM: 565258
+                </p>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                  Turma: 1TDSPV
+                </p>
+                <div className="mt-4 flex gap-4 text-sm">
+                  <a href="#" className="font-medium text-cyan-500 hover:text-fuchsia-400 hover:underline">
+                    GitHub
+                  </a>
+                  <a href="#" className="font-medium text-cyan-500 hover:text-fuchsia-400 hover:underline">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* ENZO */}
+            <div className="relative bg-white/90 dark:bg-gray-900/80 p-6 rounded-2xl shadow-lg border border-cyan-200/40 dark:border-fuchsia-500/30 transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-fuchsia-500" />
+              
+              <div className="mt-2">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                  Enzo Xavier Coelho
+                </h2>
+                <p className="text-cyan-600 dark:text-cyan-300 font-medium">
+                  RM: 563379
+                </p>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                  Turma: 1TDSPV
+                </p>
+                <div className="mt-4 flex gap-4 text-sm">
+                  <a href="#" className="font-medium text-cyan-500 hover:text-fuchsia-400 hover:underline">
+                    GitHub
+                  </a>
+                  <a href="#" className="font-medium text-cyan-500 hover:text-fuchsia-400 hover:underline">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* GUSTAVO */}
+            <div className="relative bg-white/90 dark:bg-gray-900/80 p-6 rounded-2xl shadow-lg border border-cyan-200/40 dark:border-fuchsia-500/30 transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl">
+              <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-cyan-400 via-sky-500 to-fuchsia-500" />
+              
+              <div className="mt-2">
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
+                  Gustavo Ribeiro Permagnani
+                </h2>
+                <p className="text-cyan-600 dark:text-cyan-300 font-medium">
+                  RM: 564995
+                </p>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                  Turma: 1TDSPV
+                </p>
+                <div className="mt-4 flex gap-4 text-sm">
+                  <a href="#" className="font-medium text-cyan-500 hover:text-fuchsia-400 hover:underline">
+                    GitHub
+                  </a>
+                  <a href="#" className="font-medium text-cyan-500 hover:text-fuchsia-400 hover:underline">
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-
-        {/* --- INTEGRANTE 2 (ESPAÇO RESERVADO) --- */}
-        {/* TODO: Integrante 2 deve editar este card e fazer o commit */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-t-4 border-gray-300">
-          <h2 className="text-2xl font-bold text-gray-400">[Nome do Integrante 2]</h2>
-          <p className="text-gray-400">RM: 00000</p>
-          <p className="text-gray-400 mt-2">Turma: ...</p>
-          <div className="mt-4">
-             <span className="text-gray-300 mr-4">GitHub</span>
-             <span className="text-gray-300">LinkedIn</span>
-          </div>
-        </div>
-
-        {/* --- INTEGRANTE 3 (ESPAÇO RESERVADO) --- */}
-        {/* TODO: Integrante 3 deve editar este card e fazer o commit */}
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border-t-4 border-gray-300">
-          <h2 className="text-2xl font-bold text-gray-400">[Nome do Integrante 3]</h2>
-          <p className="text-gray-400">RM: 00000</p>
-          <p className="text-gray-400 mt-2">Turma: ...</p>
-          <div className="mt-4">
-             <span className="text-gray-300 mr-4">GitHub</span>
-             <span className="text-gray-300">LinkedIn</span>
-          </div>
-        </div>
-
-        {/* --- INTEGRANTE 4 (ESPAÇO RESERVADO - SE HOUVER) --- */}
-        {/* TODO: Se houver mais integrantes, copiem a estrutura acima */}
-
       </div>
     </div>
   );
