@@ -10,7 +10,10 @@
 
 links:
 Youtube:https://www.youtube.com/watch?si=VJGXl1wZuLfQPK_D&v=3BdkVjLQbe0&feature=youtu.be
+
+
 deploy Vercel:gs-front-2025-fwh3.vercel.app
+
 Link Github :https://github.com/MatheusGianolli/GS_FRONT2025.git
 ## 📑 Sumário
 
