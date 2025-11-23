@@ -1,75 +1,89 @@
 import type { CourseData, CourseArea } from '../types/index';
 
-// URL Base (Garante HTTPS e remove barra final se houver)
-const RAW_URL = import.meta.env.VITE_API_URL || 'https://educavrv-backendgs.onrender.com';
-const BASE_URL = RAW_URL.replace(/\/$/, '');
+// URL Base
+const BASE_URL = import.meta.env.VITE_API_URL || 'https://educavrv-backendgs.onrender.com';
 
-// --- MOCK DE SEGURANÇA (Para o site nunca ficar vazio) ---
-const MOCK_COURSES: CourseData[] = [
-    { id: 101, area: 'saude', title: 'Anatomia (Modo Offline)', slug: 'anatomia', description: 'Módulo Offline...', videoUrl: 'https://www.youtube.com/embed/5MgBikgcWnY', durationMinutes: 90, difficulty: 'expert', progress: 0, level: 1, lastAccessed: '' },
-    { id: 102, area: 'educacao', title: 'Pedagogia (Modo Offline)', slug: 'pedagogia', description: 'Módulo Offline...', videoUrl: 'https://www.youtube.com/embed/5MgBikgcWnY', durationMinutes: 60, difficulty: 'beginner', progress: 0, level: 1, lastAccessed: '' },
+// --- CORREÇÃO: Tipo 'any[]' para aceitar propriedades extras como 'progress' ---
+const MOCK_COURSES: any[] = [
+    { 
+        id: 101, 
+        area: 'saude', 
+        title: 'Anatomia (Modo Offline)', 
+        slug: 'anatomia', 
+        description: 'Módulo Offline de Anatomia...', 
+        videoUrl: 'https://www.youtube.com/embed/5MgBikgcWnY', 
+        durationMinutes: 90, 
+        difficulty: 'expert',
+        progress: 0, 
+        level: 1, 
+        lastAccessed: '' 
+    },
+    { 
+        id: 102, 
+        area: 'educacao', 
+        title: 'Pedagogia (Modo Offline)', 
+        slug: 'pedagogia', 
+        description: 'Módulo Offline de Pedagogia...', 
+        videoUrl: 'https://www.youtube.com/embed/5MgBikgcWnY', 
+        durationMinutes: 60, 
+        difficulty: 'beginner',
+        progress: 0, 
+        level: 1, 
+        lastAccessed: '' 
+    },
 ];
 
-// --- BUSCAR CURSOS (GET) ---
+// --- BUSCA CURSOS (GET) ---
 export async function getCourses(area: CourseArea): Promise<CourseData[]> {
-    console.log(`📡 Conectando em: ${BASE_URL}/api/v1/cursos`);
+    console.log(`📡 Buscando TODOS os cursos em: ${BASE_URL}/api/v1/cursos`);
 
     try {
-        // Timeout aumentado para 50s (Render Free Tier demora a acordar)
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 50000);
+        const timeoutId = setTimeout(() => controller.abort(), 50000); 
 
-        // --- O SEGREDO ESTÁ AQUI ---
-        // Removemos 'headers' para tornar a requisição SIMPLES.
-        // Isso evita bloqueios de segurança (CORS) e passa direto.
         const response = await fetch(`${BASE_URL}/api/v1/cursos`, {
             method: 'GET',
+            // headers removidos para evitar CORS complexo
             signal: controller.signal
-            // NÃO ADICIONE HEADERS AQUI PARA GET
         });
 
         clearTimeout(timeoutId);
 
-        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+        if (!response.ok) throw new Error(`Status ${response.status}`);
 
         const allCourses = await response.json();
         
-        console.log("✅ Dados Brutos recebidos:", allCourses);
-
-        // Validação de segurança
-        if (!Array.isArray(allCourses)) {
-            throw new Error("API não retornou uma lista");
+        if (!allCourses || !Array.isArray(allCourses)) {
+            throw new Error("Formato inválido recebido da API");
         }
 
-        if (allCourses.length === 0) {
-            console.warn("⚠️ Banco de dados adicionado.");
-            throw new Error("Vazio");
-        }
-
-        // Filtro local (Front-end)
-        const filtered = allCourses.filter((c: any) => 
-            c.area && c.area.toLowerCase() === area.toLowerCase()
+        // Filtro inteligente no Front-end
+        const filteredCourses = allCourses.filter((course: any) => 
+            course.area && course.area.toLowerCase() === area.toLowerCase()
         );
 
-        if (filtered.length === 0) {
-             console.warn(`⚠️ Conectando API JAVA CURSOS ${area}.`);
-             return []; 
+        if (filteredCourses.length === 0) {
+             console.warn("⚠️ Banco retornou 0 cursos para essa área. Usando Mock.");
+             throw new Error("Lista vazia após filtro");
         }
 
-        return filtered;
+        return filteredCourses;
 
     } catch (error) {
-        console.warn(`⚠️ Bando de dados adicionado.`);
-        // Simula delay para não piscar a tela
+        console.warn(`⚠️ API Real falhou ou vazia. Ativando Modo Offline.`, error);
         await new Promise(resolve => setTimeout(resolve, 500)); 
         return MOCK_COURSES.filter(c => c.area === area);
     }
 }
 
-// --- ENVIAR CONTATO (POST) ---
+// --- CORREÇÃO: Usando o formData no console ---
 export async function sendContactForm(formData: any) {
-    // Mantido como simulação para evitar erro 404 na apresentação
-    console.log('📤 Enviando contato...');
+    console.log('📤 (Simulação) Enviando contato:', formData);
+    
     await new Promise(resolve => setTimeout(resolve, 1500));
-    return { success: true, message: 'Mensagem enviada com sucesso!' };
+    
+    return { 
+        success: true, 
+        message: 'Mensagem enviada com sucesso! (Simulação)' 
+    };
 }
